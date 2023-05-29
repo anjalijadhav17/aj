@@ -1,0 +1,191 @@
+FIREBASE  FORM CODE
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firebase Authentication</title>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script type="text/javascript">
+  const firebaseConfig = {
+    apiKey: "AIzaSyAF8oxkPJV5ZXQBEyM-uS9HJMEavW9Q3-g",
+    authDomain: "shopping-app-d93ee.firebaseapp.com",
+    projectId: "shopping-app-d93ee",
+    storageBucket: "shopping-app-d93ee.appspot.com",
+    messagingSenderId: "308999424166",
+    appId: "1:308999424166:web:839de500e870961b0f8c67"
+  };
+			var app = firebase.initializeApp(firebaseConfig);
+			const db = firebase.firestore(app);
+
+			  
+
+			function signup() {
+			    var email = document.getElementById('email').value;
+			    var password = document.getElementById('password').value;
+			    firebase.auth().createUserWithEmailAndPassword(email, password)
+			    .then((userCredential) => {
+			        alert("User registered successfully!!");
+			        console.log('Signed up:', userCredential.user);
+			    })
+			    .catch((error) => {
+			        console.error('Signup error:', error.message);
+			    });
+			}
+
+		
+	</script>
+    <div class="container">
+        <h2 class="title">Firebase Authentication &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</h2>
+        <div id="login-form">
+            <div class="inputContainer">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            <div class="buttonContainer">
+                
+                <div class="btn">
+                <button class="button" id="signup" onclick="signup()">Sign up</button>
+             
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</body>
+</html>
+*************************************************
+
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container{
+    background-color: rgb(221, 221, 221);
+    border-radius: 5px;
+    height: 500px;
+    width: 30%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 10%;
+}
+.title{
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 80px;
+}
+.container h2{
+    border: 2px solid rgb(125, 122, 122);
+    border-radius: 10px;    
+}
+input{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+    padding-left: 5px
+}
+
+.btn{
+    display: flex;
+    flex-direction: row;
+}
+
+.button{
+    width: 200px;
+    margin-left: 10px;
+    
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10%;
+}
+
+button{
+    width: 250px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notesContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputDiv{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.textarea{
+    width: 500px;
+    background-color: #ccc7c7;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+#notesButton{
+    width: 300px;
+    height: 40px;
+    background-color: rgb(7, 183, 7);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#notesButton:hover{
+    background-color: rgb(25, 234, 25);
+    cursor: pointer;
+}
